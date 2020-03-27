@@ -1,0 +1,156 @@
+ng-sidebar-container{
+    height: 100vh;
+}
+
+.sidebar {
+    background-color: white;
+    width: 75vw;
+    /* height: 100%; */
+    min-height: 100%;
+}
+
+.sidebar .cajaUsuario{
+    height: 90px;
+    /* background-image: linear-gradient(#910030, #ff3e7f); */
+    background-color: #fa3b7b;
+    padding: 10px 5px 0 30px;
+    margin-bottom: 0;
+}
+.sidebar .cajaUsuario .foto{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    padding: 0;
+}
+
+.sidebar .cajaUsuario .nombre{
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.15pt;
+    /* text-transform: capitalize; */
+    margin: 0;
+}
+.sidebar .cajaUsuario .email{
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.caja-comercio{
+    background-color: #fa3b7b;
+    padding: 5px 0 5px 20px;
+    outline: 0;
+}
+.caja-comercio i{
+    color: #fff;
+    font-size: 12px;
+    margin-right: 20px;
+}
+.caja-comercio span{
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.15pt;
+}
+
+
+.sidebar hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.sidebar .caja {
+    padding: 10px 0 10px 20px;
+    transition: all .3s ease;
+    outline: 0;
+}
+    .sidebar .caja:hover{
+        background-color: #f1f1f1;
+    }
+.sidebar .caja a {
+    text-decoration: none;
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+.sidebar .caja a span {
+    color: #4b4b4b;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.15pt;
+}
+.sidebar .caja a i {
+    margin-right: 20px;
+    width: 12px;
+}
+.sidebar .caja a .fa-compass{
+    margin-right: 20px;
+    font-weight: 400;
+}
+.sidebar .caja a .fa-bell{
+    margin-right: 20px;
+    font-weight: 400;
+}
+.sidebar .caja a .fa-clipboard{
+    margin-right: 20px;
+    font-weight: 400;
+}
+.sidebar .caja a .fa-heart {
+    margin-right: 20px;
+    font-weight: 400;
+}
+.sidebar .caja a .fa-user {
+    margin-right: 20px;
+    font-weight: 400;
+}
+.sidebar .caja a .fa-power-off {
+    margin-right: 20px;
+}
+.sidebar .caja a p {
+    font-size: 12px;
+    color: #4b4b4b;
+}
+
+.nav{
+    height: 50px;
+    /* background: #38a85a; */
+    /* background-image: linear-gradient(#910030, #ff3e7f); */
+    background-color: #fa3b7b;
+    align-content: center;
+    align-items: center;
+}
+.nav .btnMenu{
+    background: none;
+    border: 0;
+    color: #ffffff;
+    padding: 0 20px;
+    font-size: 20px;
+    outline: 0;
+}
+.nav .titulo{
+    color: #ffffff;
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.025rem;
+    margin-left: 20px;
+    margin-right: auto;
+    outline: 0;
+}
+.nav .btnIngresar{
+    color: #ffffff;
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    border: 0;
+    padding: 0 20px;
+    background: none;
+}

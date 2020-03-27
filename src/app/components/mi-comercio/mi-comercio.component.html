@@ -1,0 +1,122 @@
+<!-- Nav -->
+<div class="caja-nav">    
+	<div class="row">
+
+		<div class="col-3" style="text-align:left" *ngIf="this.ap.exist" (click)="this.ap._toggleOpened()">
+			<button class="menu">
+				<i class="fas fa-bars"></i>
+			</button>
+		</div>
+		<div class="col-3" *ngIf="!this.ap.exist"></div>
+
+		<div class="col-6">
+			<p class="titulo">Mi comercio</p>
+			<p class="estado" *ngIf="comercio.abierto == true">Abierto</p>
+			<p class="estado" *ngIf="comercio.abierto == false">Cerrado</p>
+		</div>
+
+		<div class="col-3">
+			<!-- <label class="switch">
+				<input type="checkbox" checked>
+				<span class="slider round"></span>
+			</label> -->
+			<!-- <mat-slide-toggle class="example-margin" [color]="color" [checked]="checked"></mat-slide-toggle> -->
+			<mat-slide-toggle
+				(click)="estado( comercioId )"
+				class="example-margin"
+				color="primary"
+				[checked]="abierto"
+				disabled="false">
+			</mat-slide-toggle>
+		</div>
+	</div>		
+</div>
+
+
+<!-- Cabecera -->
+<div class="cajaComercio animated fadeIn fast">
+	<!-- <a class="btnCarrito" *ngIf="_fs.usuario.uid" (click)="verCarrito()"><i class="fas fa-shopping-cart"></i></a> -->
+	<div style="position: relative; height: 100%; overflow: hidden;">
+		<div class="imagen-banner">
+			<img src="{{ comercio.banner }}">
+		</div>
+		<div class="comercio" style="position: relative;">
+			<div class="comercio-header row m-0">	
+				<div class="col-12 d-flex align-items-center">
+					<img src="{{ comercio.img }}">
+				</div>			
+				<div class="col-12">
+					<p>{{ comercio.nombre }}</p>	
+				</div>
+			</div>
+			<div class="comercio-info row m-0 align-items-center">
+				<div class="col">
+					<h5>Seguidores</h5>
+					<p>3.500</p>
+				</div>
+				<div class="col" *ngIf="comercio.delivery == true">
+					<h5>Delivery</h5>
+					<p>$ {{ comercio.deliveryPrecio }}</p> 
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<div class="caja-items">
+
+  <div class="item" [routerLink]="['/co-pedidos']">
+		<div class="texto">
+			<span>Todos los Pedidos</span>
+		</div>
+		<div class="icono">
+			<i class="fas fa-chevron-right"></i>
+		</div>
+	</div>
+
+	<div class="item" [routerLink]="['menu']">
+		<div class="texto">
+			<span>Menú</span>
+		</div>
+		<div class="icono">
+			<i class="fas fa-chevron-right"></i>
+		</div>
+	</div>
+
+  <!-- <div class="item" [routerLink]="['categorias']">
+    <div class="texto">
+      <span>Categorías</span>
+    </div>
+    <div class="icono">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div> -->
+
+  <!-- <div class="item" [routerLink]="['productos']">
+    <div class="texto">
+      <span>Productos</span>
+    </div>
+    <div class="icono">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div> -->
+
+  <div class="item" [routerLink]="['/co-config']">
+    <div class="texto">
+      <span>Configuración</span>
+    </div>
+    <div class="icono">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="texto">
+      <span>Ayuda</span>
+    </div>
+    <div class="icono">
+      <i class="fas fa-chevron-right"></i>
+    </div>
+	</div>
+
+</div>

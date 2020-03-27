@@ -1,0 +1,56 @@
+<div class="caja-nav"> 
+	<div class="row">
+		<div class="col-3" *ngIf="this.ap.exist" style="text-align:left" (click)="this.ap._toggleOpened()">
+			<button class="menu">
+				<i class="fas fa-bars"></i>
+			</button>
+		</div>
+
+		<div class="col-6">
+			<span class="titulo">Mis direcciones</span>
+		</div>
+
+		<div class="col-3"></div>
+	</div>
+</div>
+
+
+<div class="conenedor">
+
+	<!-- <div class="animated fadeIn fast">
+		<div class="direccion" *ngFor="let domicilio of domicilios" (click)="actualizar( domicilio.id)">
+			<span>{{ domicilio.calle }}, {{ domicilio.numero }}</span>
+			<span>B° {{ domicilio.barrio }} - {{ domicilio.ciudad }} <i class="fa fa-trash-alt"></i></span>			
+		</div>
+	</div> -->
+
+	<div class="animated fadeIn fast">
+		<div class="direccion" *ngFor="let domicilio of domicilios" >
+			<div class="row">
+				<div class="col-10" (click)="actualizar( domicilio.id)">
+					<span>{{ domicilio.calle }}, {{ domicilio.numero }}</span>
+					<span>B° {{ domicilio.barrio }} - {{ domicilio.ciudad }}</span>
+				</div>
+				<div class="col-2 btn-eliminar" (click)="borrarDomicilio( this.userId, domicilio.id )">
+					<i class="fa fa-trash-alt"></i>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	<div class="no-existe" *ngIf="domicilios.length == 0">
+		<span>Upps</span>
+		<span>No tienes ninguna dirección</span>
+	</div>
+
+	<div class="caja" *ngIf="!max">
+		<button class="agregar animated fadeIn fast" (click)="irDireccion()">
+		<span>Agregar dirección</span>
+		</button>
+	</div>
+
+	<div class="caja" *ngIf="max">
+		<span class="maximo">Solo puedes tener hasta 5 direcciones</span>
+	</div>
+
+</div>

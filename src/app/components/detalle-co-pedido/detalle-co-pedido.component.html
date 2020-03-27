@@ -1,0 +1,168 @@
+<!-- BARRA DE NAVEGACION -->
+<div class="caja-nav">   
+	<div class="row">
+	  <!-- <div class="col-2" style="text-align:left" [routerLink]="['/co-pedidos']" > -->
+	  <div class="col-2" style="text-align:left" (click)="irAtras()">
+		<button class="regresar">
+		  <i class="fas fa-angle-left"></i>
+		</button>
+	  </div>
+  
+	  <div class="col-8" style="text-align:left">
+		<span class="titulo">Detalle del Pedido</span>
+	  </div>
+  
+	  <div class="col-2"></div>
+	</div>
+</div>
+
+<div class="contenedor animate fadeIn fast">
+	<!-- CABECERA -->
+	<div class="cabecera">
+		<div class="row">
+			<div class="col-6 numeroOrden">
+				<p>ORDEN N° 371</p>
+			</div>
+			<div class="col-6 total">
+				<p>$ 815</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-6 fecha">
+				<p>11/10/18 20:50</p>
+			</div>
+			<div class="col-6 estado">
+				<p style="color:green">En Camino</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- CUERPO: CLIENTE-->
+	<div class="cuerpo">
+		<p class="txtCliente">Cliente</p>
+		<div class="cliente">
+			<div class="row">
+				<div class="col-1 icono">
+					<i class="fa fa-user"></i>
+				</div>
+				<div class="col-11 caja-datos">
+					<div class="row">
+						<div class="col-9 nombre">
+							<p>Franco Martinez</p>
+						</div>
+						<div class="col-3 llamar">
+							<a href="tel:3804697822">Llamar</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 contacto">
+							<p>3826403155</p>
+							<p>fd.martinezfranco@gmail.com</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- CUERPO: PRODUCTO-->
+	<div class="cuerpo">
+		<p class="txtProductos">Productos</p>
+		<div class="productos">
+			<div class="row">
+				<div class="col-1 cantidad">
+					<p>3</p>
+				</div>
+				<div class="col-8 nombre">
+					<p>Pizza Napolitana</p>
+					<p class="aclaracion">sin oregano</p>
+				</div>
+				<div class="col-3 precio">
+					<p>$ 450</p>
+				</div>
+			</div>
+		</div>
+		<div class="productos">
+			<div class="row">
+				<div class="col-1 cantidad">
+					<p>1</p>
+				</div>
+				<div class="col-8 nombre">
+					<p>Lomo Especial con Papas</p>
+					<p class="aclaracion"></p>
+				</div>
+				<div class="col-3 precio">
+					<p>$ 150</p>
+				</div>
+			</div>
+		</div>
+		<div class="productos">
+			<div class="row">
+				<div class="col-1 cantidad">
+					<p>2</p>
+				</div>
+				<div class="col-8 nombre">
+					<p>Pizza Comun</p>
+					<p class="aclaracion">1 sin oregano</p>
+				</div>
+				<div class="col-3 precio">
+					<p>$ 200</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- CUERPO: ENTREGA -->
+	<div class="cuerpo">
+		<div class="row tituloEntrega">
+			<div class="col-6">
+				<p class="txtEntrega">Entrega</p>
+			</div>
+			<div class="col-6 tipo">
+				<p>Delivery ($ 15)</p>
+			</div>
+		</div>
+		<div class="entrega">
+			<div class="row">
+				<div class="col-8 direccion">
+					<p>B° Centro</p>
+					<p>Av. Luis Vernet, 1230</p>
+				</div>
+				<div class="col-4 btnMapa" (click)="toggleMapa()">
+					<p>Ver Mapa</p>
+				</div>
+			</div>
+			<div class="direccion2">
+				<p>Piso 2 - Depto 17</p>
+				<p>Entre: Carlos Longueville y Rosario Peñaloza</p>
+				<p>Casa con rejas azules</p>
+			</div>
+			<div class="mapa" *ngIf="visible">
+				<agm-map [latitude]="-30.361148" [longitude]="-66.314116" [zoom]="15">
+					<agm-marker [latitude]="-30.361148" [longitude]="-66.314116"></agm-marker>
+				</agm-map>
+			</div>
+		</div>
+	</div>
+  
+  
+	
+  
+</div>
+
+<!-- BOTON CANCELAR PEDIDO -->
+<div class="caja-boton fixed-bottom">
+	<div class="row">
+		<div class="col-6">
+			<button class="btnRechazar">
+				<span>Rechazar</span>
+			</button>
+		</div>
+		<div class="col-6">
+			<button class="btnAceptar">
+				<span>Aceptar</span>
+			</button>
+		</div>
+	</div>
+</div>

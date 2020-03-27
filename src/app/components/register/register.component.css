@@ -1,0 +1,77 @@
+.input-field input[type=date]:focus + label,
+.input-field input[type=text]:focus + label,
+.input-field input[type=email]:focus + label,
+.input-field input[type=password]:focus + label {
+  color: #fe4918;
+}
+
+.input-field input[type=date]:focus,
+.input-field input[type=text]:focus,
+.input-field input[type=email]:focus,
+.input-field input[type=password]:focus {
+  border-bottom: 2px solid #fe4918;
+  box-shadow: none;
+}
+div.container{
+    margin-top: 5%;
+    text-align: center;
+    padding: 0 20px 0 20px;
+}
+div.register form{
+    border-bottom: 1px solid rgb(196, 196, 196);
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+}
+div.register h4 {
+    font-weight: bold;
+    font-size: 29px;
+}
+.input-group-text {
+    background-color: #fff;
+}
+.container .terminos {
+    float: right;
+    padding-right: 15px;
+    margin-top: 15px;
+    font-size: 12px;
+}
+.container .boton{
+    margin: 20px 15%;
+    height: 40px;
+    border: 1px solid #fa3b7b;
+    background-color: #ffffff;
+    text-align: center;
+    padding-top: 6px;
+    cursor: pointer;
+    transition: all .3s ease;
+    font-weight: bold;
+    color: #fa3b7b;
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+.container .boton:hover{
+    background-color: #fa3b7b;
+    color: #ffffff;
+}
+
+div.crear-cuenta p {
+    color: black;
+}
+div.crear-cuenta a{
+  text-decoration: none;
+  color: #fe4918;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+button:disabled{
+    background-color: #e1e1e1!important;
+    border: 1px solid #949494!important;
+}
+button:disabled span{
+    color: #949494!important;
+}
+button:disabled span:hover{
+    background-color: #e1e1e1!important;
+    color: #949494!important;
+}

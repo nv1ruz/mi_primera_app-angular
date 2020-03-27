@@ -1,0 +1,124 @@
+<!-- <div class="container login animated fadeIn"  *ngIf="!_fs.usuario.uid">
+    <br>
+    <form method="post">
+        <div> 
+            <h4>INICIAR SESIÓN</h4>
+        </div>
+        <br><br>
+        <div class="campos">
+            <div class='input-field col-12'>
+                <label class="sr-only">Correo Electronico</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                    </div>
+                    <input type="email" class="form-control" #email placeholder="Correo Electrónico">
+                </div>
+            </div>
+            <br>
+            <div class='input-field col-12'>
+                <label class="sr-only">Contraseña</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-key"></i>
+                        </div>
+                    </div>
+                    <input type="password" class="form-control" #pass placeholder="Contraseña">
+                </div>
+            </div>
+        </div>
+        <label class="olvidar-pass">
+            <a href=''><b>Olvidé mi Contraseña</b></a>
+        </label>
+        <br><br>
+        <div class="boton" *ngIf="!_fs.usuario.uid" (click)="loginWithEmailAndPass( email.value, pass.value )">
+            <span>
+                INGRESAR
+            </span>
+        </div>
+        <br>
+    </form>
+    <br>
+    <div class="redes-sociales">
+        <p class="opcIngreso">utilizar mi cuenta de</p>
+        <div class="row">
+            <div class="botonR" *ngIf="!_fs.usuario.uid">
+                <span>
+                    Facebook
+                </span>
+            </div>
+            <div class="botonR"  *ngIf="!_fs.usuario.uid">
+                <span (click)="_fs.login('google')">
+                    Google
+                </span>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="center crear-cuenta">
+        <p>¿Aun no tienes cuenta? - <a [routerLink]="['/register']">Crear cuenta</a></p>
+    </div>
+    <br>
+    <hr>
+    <div class="center cuenta-comercial">
+        <p><a [routerLink]="['/registerComercio']">Poseo cuenta Comercial</a></p>
+    </div>
+    
+</div> -->
+
+
+<div class="caja-nav" [routerLink]="['/home']">    
+
+	<div class="row">
+		<div class="col-3">
+			<button class="menu">
+				<i class="fas fa-bars" style="color:#fa3b7b"></i>
+			</button>
+		</div>
+		<div class="col-6">
+			<span class="titulo"><i class="fas fa-car"></i> MyApp</span>
+		</div>
+		<div class="col-3">
+			<a class="btnLogin" style="color:#fa3b7b">
+				<span>Ingresar</span>
+			</a>
+		</div>
+	</div>
+		
+</div>
+
+
+<div class="contenedor animated fadeIn fast">
+    <div class="caja-login">
+        <div class="redes-sociales">
+            <div class="encabezado">
+                <h4>Bienvenido!</h4>
+                <span>Conectate para empezar a disfrutar al máximo la App.</span>
+            </div>
+            <button class="gm" (click)="iniciarSesion( 'google', '0', '0' )">
+                <span><img class="ico" src="/src/assets/img/auth/google.svg"></span>
+                <span class="text">Ingresar con Google</span>
+            </button>
+            <button class="fb" (click)="iniciarSesion( 'facebook', '0', '0' )">
+                <span><img class="ico" src="/src/assets/img/auth/facebook.svg"></span>
+                <span class="text">Ingresar con Facebook</span>
+            </button>
+        </div>
+
+        <p>O puedes ingresar con</p>
+
+        <div class="mail">
+            <input class="inp" type="email" placeholder="Email" #email>
+            <input type="password" placeholder="Password" #pass>
+            <span class="inf" style="cursor: pointer;">Olvidaste tu contraseña?</span>
+            <button class="ingresar" (click)="iniciarSesion( 'email', email.value, pass.value )">
+                <span class="text">Ingresar</span>
+            </button>
+            <span>No tienes una cuenta? <strong [routerLink]="['/register']" style="cursor: pointer;">Registrate</strong></span>
+        </div>
+
+    </div>
+</div>

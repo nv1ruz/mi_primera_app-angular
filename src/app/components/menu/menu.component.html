@@ -1,0 +1,87 @@
+<div class="caja-nav">   
+	<div class="row">
+		<!-- <div class="col-2" style="text-align:left" [routerLink]="['/micomercio']"> -->
+		<div class="col-2" style="text-align:left" (click)="irAtras()">
+			<button class="regresar">
+				<i class="fas fa-angle-left"></i>
+			</button>
+		</div>
+		
+		<div class="col-8" style="text-align:left">
+			<span class="titulo"> Menú </span>
+		</div>
+		
+		<div class="col-2"></div>
+	</div>
+</div>
+
+<div style="padding-bottom: 65px;" class="animated fadeIn fast">
+	<div style="height: 15px; background-color: #f4f4f4;"></div>
+  	<div *ngFor="let c of categorias">
+
+		<div class="caja-categoria">      
+		<div class="categoria row m-0">
+			<div class="col-9" [routerLink]="['categoria', c.id]">
+			<i class="fas fa-haykal"></i>
+			<span> {{ c.nombre }}</span>
+			</div>
+			<div class="opciones col-3">
+				<!-- <label class="switch">
+				<input type="checkbox" checked>
+				<span class="slider round"></span>
+				</label> -->
+				<mat-slide-toggle
+					(click)="actualizarEstadoCategoria( usuario.idCom, c.id, c.estado )"
+					class="example-margin"
+					color="accent"
+					checked="{{ c.estado }}"
+					disabled="false">
+				</mat-slide-toggle>
+			</div>
+		</div>
+		</div>
+
+		<div class="caja-producto">
+			<div *ngFor="let p of productos">
+				<div class="producto row" *ngIf="c.nombre == p.categoria">        
+					<div class="caja-foto col-2" (click)="editarProducto( p.id )">
+						<img src="{{ p.foto }}" width="100">
+					</div>
+					<div class="caja-descripcion col-8" (click)="editarProducto( p.id )">
+						<span class="nombre">{{ p.nombre }}</span>      
+						<span class="ingredientes">{{ p.ingredientes }}</span>   
+						<span class="precio">${{ p.precio }}</span>
+							
+					</div>
+					<!-- <div class="caja-boton-new"></div>   -->
+					<div class="col-2">
+						<mat-slide-toggle
+							(click)="actualizarEstadoProducto( usuario.idCom, p.id, p.estado )"
+							class="example-margin"
+							color="primary"
+							checked="{{ p.estado }}"
+							disabled="false">
+						</mat-slide-toggle>
+					</div>
+					      
+				</div>
+			</div>
+
+			<div class="caja-boton-agregar" [routerLink]="['producto', c.nombre]">
+				<div class="texto">
+				<span>Añadir producto</span>
+				</div>
+				<div class="icono">
+				<i class="fas fa-plus"></i>
+				</div>
+			</div>
+		</div>
+
+ 	</div>
+</div>
+
+<div class="caja-boton fixed-bottom">
+  <button class="cat" [routerLink]="['categoria']">
+    <span>Añadir categoría</span>
+  </button>
+</div>

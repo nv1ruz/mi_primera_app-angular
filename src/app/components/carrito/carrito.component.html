@@ -1,0 +1,174 @@
+<!-- BARRA NAVEGACION -->
+<div class="caja-nav">    
+
+	<div class="row">
+		<div class="col-2" style="text-align:left" (click)="irAtras()">
+			<button class="regresar">
+				<i class="fas fa-angle-left"></i>
+			</button>
+		</div>
+		<div class="col-8" style="text-align:left">
+			<span class="titulo">Tu pedido</span>
+		</div>
+		<div class="col-2">			
+		</div>
+	</div>
+</div>
+
+
+<!--CAJA CARRITO -->
+<div class="cajaCarrito animated fadeIn fast">
+
+	<div class="carrito-body" *ngIf="_cs.carrito.length > 0">
+		
+		<!-- SECCION: MI PEDIDO -->
+		<div class="accordion" id="acordion">
+			<div class="card" *ngFor="let producto of this._cs.carrito">
+				<div class="card-header2" id="heading1" data-toggle="collapse" [attr.data-target]="'#a' + producto.id" aria-expanded="false" aria-controls="collapse1">
+					<div class="row d-flex align-items-center">
+						<div class="col-1 cant-prod">
+							<p>{{ producto.cant }}</p>
+						</div>
+						<div class="col-8 nombre-prod">
+							<p>{{ producto.nombre }}</p>
+						</div>
+						<div class="col-3 prec-prod">
+							<p>$ {{ producto.preTot }}</p>
+						</div>
+					</div>
+				</div>
+				<div id="a{{producto.id}}" class="collapse" aria-labelledby="heading1" data-parent="#acordion">
+					<div class="card-body">
+						<div class=" animated fadeIn">
+							<div class="producto row align-items-center row">  
+								<div class="caja1 col-auto">
+									<div class="foto">
+										<img src="{{ producto.img }}" width="70" height="50">
+									</div>
+								</div>
+								<div class="caja2 col">
+									<p class="ingredientes">{{ producto.ing }}</p>      
+									<p class="ingredientes">Nota: {{ producto.nota }}</p>      
+									<div class="precio-cant row">
+										<div class="col-3 precio">
+											<span>${{ producto.pre }}</span>
+										</div>
+										<div class="col-7 cantidad">
+											<button class="down" (click)="restarCantidad( producto )">
+												<i class="fa fa-minus"></i>
+											</button> 
+											
+											<button class="up" (click)="sumarCantidad( producto )">
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+										<div class="col-2">
+											<a class="eliminar" (click)="eliminarProducto( producto.id )">
+												<i class="fa fa-trash-alt"></i>
+											</a> 
+										</div>
+									</div>
+								</div>   
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+		
+		<!-- SECCION: FORMA DE ENTREGA -->
+		<p class="txtSubtitulo">Forma de Entrega</p>
+		<div class="form-entrega">
+
+			<div class="caja-entrega row m-0">
+				<div class="icono col-2">
+					<i class="fas fa-shipping-fast"></i>
+				</div>
+				<div class="forma-entrega col-10"> 
+					<mat-form-field>
+						<mat-select placeholder="Forma de entrega" [formControl]="entrega" required>
+							<mat-option value="0" (click)="sumarTotal()">Retiro en local</mat-option>
+							<mat-option value="1" (click)="sumarTotal()">Delivery</mat-option>
+						</mat-select>
+						<mat-error *ngIf="entrega.hasError('required')">Elige una opción</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+
+			<div class="caja-direccion row m-0" *ngIf="entrega.value == 1">
+				<div class="icono col-2">
+					<i class="fas fa-map-marker-alt"></i>
+				</div>
+				<div class="direccion col-10">
+					<mat-form-field>
+						<mat-select placeholder="Dirección de entrega" [formControl]="direccion" required>
+							<mat-option *ngFor="let direccion of domicilios"
+								(click)="cargarDireccionn( direccion )"
+								value="{{ direccion.direccionId }}">{{ direccion.calle }}, {{ direccion.numero }}
+							</mat-option>
+							<mat-option (click)="nuevaDireccion()" *ngIf="!max">- Nueva dirección -</mat-option>
+						</mat-select>
+						<mat-error *ngIf="direccion.hasError('required')">Elige una dirección</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- PIE DEL CARRITO -->
+		<div class="row total m-0 fixed-bottom align-items-center" *ngIf="_cs.carrito.length > 0">
+			<div class="col-12 p-0">
+
+				<div class="row m-0">
+					<div class="titulo-subtotal col-4">
+						<span>Subtotal</span>
+					</div>
+					<div class="precio-subtotal col-8">
+						<span>{{ subtotal | currency }}</span>
+					</div>
+				</div>
+				<div class="row m-0">
+					<div class="titulo-delivery col-4">
+						<span>Delivery</span>
+					</div>
+					<div class="precio-delivery col-8">
+						<span>{{ precioDelivery | currency }}</span>
+					</div>
+				</div>
+				<div class="row m-0">
+					<div class="col-4 total-titulo">
+						<p>Total</p>
+					</div>
+					<div class="col-8 total-numero">
+						<p>{{ precioTotal | currency }}</p>
+					</div>
+				</div>
+				<div class="row confirmar m-0 align-items-center">
+					<div class="col-12" (click)="enviarPedido()">
+						<span><i class="fas fa-concierge-bell"></i> Enviar pedido</span>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+	<!-- CARRITO VACIO -->
+	<div class="carrito-vacio animated fadeIn fast" *ngIf="this._cs.carrito.length == 0">
+		<i class="fa fa-shopping-basket"></i>
+		<p class="uno">Tu carrito está vacío</p>
+		<p>Parece que aún no elegiste</p>
+		<p>lo que vas a pedir.</p>
+		<!-- <button [routerLink]="['/comercio', refId]">Explorar</button> -->
+		<button (click)="irAtras()">Explorar</button>
+	</div>
+
+
+
+</div>
+

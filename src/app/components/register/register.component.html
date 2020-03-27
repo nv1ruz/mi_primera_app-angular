@@ -1,0 +1,62 @@
+<div class="container register animated fadeIn">
+  <br>
+  <form method="post" [formGroup]="rForm">
+        <div> 
+            <h4>CREAR CUENTA</h4>
+        </div>
+        <br>
+        <div class="campos">
+            <div class='input-field col-12'>
+                <label class="sr-only">Correo Electronico</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-envelope"></i>
+                        </div>
+                    </div>
+                    <input type="email" formControlName="email" class="form-control" #email placeholder="Correo Electrónico" required>
+                </div>
+            </div>
+            <br>
+            <div class='input-field col-12'>
+                <label class="sr-only">Contraseña</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-key"></i>
+                        </div>
+                    </div>
+                    <input type="password" formControlName="clave1" class="form-control" #pass placeholder="Contraseña" required>
+                </div>
+            </div>
+            <br>
+            <div class='input-field col-12'>
+                <label class="sr-only">Repite la Contraseña</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fa fa-key"></i>
+                        </div>
+                    </div>
+                    <input type="password" formControlName="clave2" class="form-control" placeholder="Repite la Contraseña" required>
+                </div>
+            </div>
+            <br>
+        </div>
+        <label class="terminos">
+            <a href=''><b>He leído los Términos y Condiciones</b></a>
+        </label>
+        <br><br>
+        <button class="boton" [disabled]="!rForm.valid" (click)="registro( email.value, pass.value )">
+            <span>
+                REGISTRAR
+            </span>
+        </button>
+        <br>
+    </form>
+  <br>
+  <div class="center crear-cuenta">
+      <p>¿Ya tienes una cuenta? - <a [routerLink]="['/login']">Inicia Sesión</a></p>
+  </div>
+  
+</div>

@@ -1,0 +1,53 @@
+<div class="caja-nav">    
+
+	<div class="row">
+
+		<!-- <div class="col-2" style="text-align:left" [routerLink]="['/micomercio/menu']"> -->
+		<div class="col-2" style="text-align:left" (click)="irAtras()">
+			<button class="regresar">
+				<i class="fas fa-angle-left"></i>
+			</button>
+		</div>
+
+		<div class="col-8" style="text-align:left">
+			<span class="titulo">{{ titulo }}</span>
+		</div>
+
+		<div class="col-2" *ngIf="this.editar" (click)="eliminarProducto()">
+			<button class="delete" >
+				<i class="fas fa-trash-alt"></i>
+			</button>
+		</div>
+		<div class="col-2" *ngIf="!this.editar"></div>
+
+	</div>
+
+</div>
+
+<form [formGroup]="fProducto" class="animated fadeIn fast">
+
+  <div class="caja-texto">
+    <span>Nombre</span>
+    <input type="text" formControlName="nombre" placeholder="Ingresa el nombre" value="" #nom required>
+  </div>
+  <div class="caja-texto">
+    <span>Ingredientes</span>
+    <input type="text" formControlName="ingredientes" placeholder="Ingresa los ingredientes" value="" #ing required>
+  </div>
+  <div class="caja-texto">
+    <span>Categoria</span>
+    <input type="text" formControlName="categoria" placeholder="Selecciona una categoria" value="" #cat required>
+  </div>
+  <div class="caja-texto">
+    <span>Precio</span>
+    <input type="text" formControlName="precio" placeholder="Ingresa el precio" value="" #pre required>
+  </div>
+  
+  <div class="caja-boton">
+    <button class="pro" (click)="guardarProducto( this.usuario.idCom , nom.value, ing.value, cat.value, pre.value )">
+      <!-- <span>Guardar</span> -->
+      <span>{{ txtBoton }}</span>
+    </button>
+  </div>
+
+</form>

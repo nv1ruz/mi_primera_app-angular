@@ -1,0 +1,97 @@
+<div class="caja-nav">    
+	<div class="row">
+		<div class="col-3" *ngIf="this.ap.exist" style="text-align:left" (click)="this.ap._toggleOpened()">
+			<button class="menu">
+				<i class="fas fa-bars"></i>
+			</button>
+    	</div>
+		<div class="col-3" *ngIf="!this.ap.exist"></div>
+
+		<div class="col-6">
+			<!-- <span class="titulo"><i class="fas fa-car"></i> MyApp</span> -->
+			<span class="titulo">Mi Aplicación</span>
+		</div>
+		
+		<div class="col-3" *ngIf="this.ap.exist"></div>
+		<div class="col-3" *ngIf="!this.ap.exist" [routerLink]="['/login']">
+			<button class="btnLogin">
+				<span>Ingresar</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+  <div class="caja-abierto">
+    <span>Abiertos</span>
+  </div>
+
+  <div class="container-fluid animated fadeIn comerciosAbiertos">
+
+    <!-- <div class="comercio row align-items-center" (click)="verComercio( comercioAbierto.id )" *ngFor="let comercioAbierto of comerciosAbiertos">   -->
+    <!-- <div class="comercio row align-items-center">   -->
+      
+      
+      <div  *ngFor="let comercio of comercios">
+
+        <div class="comercio row align-items-center" (click)="verComercio( comercio.id )" *ngIf="comercio.data.abierto">
+
+            <div class="caja1 col-auto">
+                <div class="foto">
+                  <img src="{{ comercio.data.img }}" width="100">
+                </div>
+              </div>
+              <div class="caja2 col">
+                <h5 class="nombre">{{ comercio.data.nombre }}</h5> 
+                <span *ngIf="comercio.data.abierto" class="estado">Abierto </span>
+                <span *ngIf="!comercio.data.abierto" class="estado">Cerrado </span>
+                <span *ngIf="comercio.data.delivery" class="delivery"><i class="fas fa-shipping-fast"></i></span>      
+              </div> 
+
+        </div>
+
+      </div>
+
+
+        
+
+  </div>
+
+  <!-- </div>  -->
+
+
+
+
+
+  <div class="caja-cerrado">
+    <span>Cerrados</span>
+  </div>
+
+  <div class="container-fluid animated fadeIn comerciosCerrados">
+
+      <div  *ngFor="let comercio of comercios">
+
+          <div class="comercio row align-items-center" (click)="verComercio( comercio.id )" *ngIf="!comercio.data.abierto">
+  
+              <div class="caja1 col-auto">
+                  <div class="foto">
+                    <img src="{{ comercio.data.img }}" width="100">
+                  </div>
+                </div>
+                <div class="caja2 col">
+                  <h5 class="nombre">{{ comercio.data.nombre }}</h5> 
+                  <span *ngIf="comercio.data.abierto" class="estado">Abierto </span>
+                  <span *ngIf="!comercio.data.abierto" class="estado">Cerrado </span>
+                  <span *ngIf="comercio.data.delivery" class="delivery"><i class="fas fa-shipping-fast"></i></span>      
+                </div> 
+  
+          </div>
+  
+        </div>
+
+  </div>

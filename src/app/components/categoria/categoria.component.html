@@ -1,0 +1,40 @@
+<div class="caja-nav">    
+
+  	<div class="row">
+
+		<!-- <div class="col-2" style="text-align:left" [routerLink]="['/micomercio/menu']"> -->
+		<div class="col-2" style="text-align:left" (click)="irAtras()">
+			<button class="regresar">
+				<i class="fas fa-angle-left"></i>
+			</button>
+		</div>
+
+		<div class="col-8" style="text-align:left">
+			<span class="titulo">{{ titulo }}</span>
+		</div>
+
+		<div class="col-2" *ngIf="this.editar" (click)="borrarCategoria()">
+			<button class="delete">
+				<i class="fas fa-trash-alt"></i>
+			</button>
+		</div>
+		<div class="col-2" *ngIf="!this.editar"></div>
+
+    </div>
+</div>
+
+<form [formGroup]="fCategoria">
+  <div class="caja-texto animated fadeIn fast">
+      <span>Nombre</span>
+      <input type="text" formControlName="nombre" placeholder="Ingresa el nombre de la categoria" value="" #cat required>
+  </div>
+
+
+  <div class="caja-boton">
+    <!-- <button class="cat" (click)="guardarCategoria( this.usuario.idCom, cat.value)">     -->
+    <button class="cat" (click)="openAddFileDialog()">    
+      <span>{{ txtBoton }}</span>
+		</button>
+		<!-- <button (click)="openAddFileDialog()">Add file</button> -->
+  </div>
+</form>

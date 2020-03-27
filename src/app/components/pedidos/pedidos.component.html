@@ -1,0 +1,124 @@
+<div class="contenedor">
+
+
+
+
+
+	<!-- BARRA DE NAVEGACION -->
+	<div class="caja-nav">   
+		<div class="row">
+			<div class="col-3" style="text-align:left" (click)="this.ap._toggleOpened()">
+				<button class="menu">
+					<i class="fas fa-bars"></i>
+				</button>
+			</div>
+			<!-- <div class="col-3" *ngIf="!this.ap.exist"></div> -->
+
+			<div class="col-6">
+				<span class="titulo">Mis pedidos</span>
+			</div>
+			
+			<div class="col-3">
+
+			</div>
+		</div>
+	</div>
+
+	
+
+	<!-- TAB -->
+	<div class="nav nav-tabs tab" id="nav-tab" role="tablist">
+		<a class="nav-item nav-link item active" data-toggle="tab" href="#nav-encurso" role="tab">
+			<p>En curso ({{ conEncurso }})</p>
+			<!-- <p>(1)</p> -->
+		</a>
+		<a class="nav-item nav-link item" data-toggle="tab" href="#nav-historial" role="tab">
+			<p>Historial</p>
+			<!-- <p>(4)</p> -->
+		</a>
+	</div>
+
+	<div class="tab-content caja-pedidos" id="nav-tabContent">
+
+		<!-- En curso -->
+		<div class="tab-pane fade show active nav-encurso" id="nav-encurso" role="tabpanel">
+
+			<div class="animated fadeIn fast" >
+				<div *ngFor="let pedido of pedidos; index as i;">
+				
+					<div class="pedido row animated flipInX" *ngIf="pedido.estado == 'Pendiente' || pedido.estado == 'En proceso' || pedido.estado == 'Listo'" [routerLink]="['/pedido', pedido.id]">
+						<div class="col-2 p-0 imagen">
+							<img src="{{ pedido.comercioFoto}}">
+						</div>
+						<div class="col-10 p-0 comercio" (click)="verPedido( pedido.id )">
+							<div class="row m-0">
+								<div class="col-9 caja-nombre">
+									<span class="nombre">{{ pedido.comercioNombre }}</span>
+								</div>
+								<div class="col-3 caja-precio">
+									<span class="precio">$ {{ pedido.total }}</span>
+								</div>
+							</div>
+							<div class="row m-0">
+								<div class="col-6 caja-estado">
+									<span class="estado" *ngIf="pedido.estado == 'Pendiente'" style="color: #b4b4b4;">Pendiente</span>
+									<span class="estado" *ngIf="pedido.estado == 'En proceso'" style="color:#2b62d8">En proceso</span>
+									<span class="estado" *ngIf="pedido.estado == 'Listo' && pedido.delivery == true" style="color:#1bb140">En camino</span>
+									<span class="estado" *ngIf="pedido.estado == 'Listo' && pedido.delivery == false" style="color:#1bb140">Listo para retirar</span>
+								</div>
+								<div class="col-6 caja-fecha">
+									<span class="fecha">{{ pedido.fecha | date:'short' }}</span>
+								</div>							
+							</div>
+						</div>
+
+						
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Historial -->
+		<div class="tab-pane fade nav-historial" id="nav-historial" role="tabpanel">
+			
+			<div class="animated fadeIn fast" >
+				<div *ngFor="let pedido of pedidos; index as i;">
+				
+					<div class="pedido row animated flipInX" *ngIf="pedido.estado == 'Entregado' || pedido.estado == 'Rechazado' || pedido.estado == 'Cancelado'" [routerLink]="['/pedido', pedido.id]">
+						<div class="col-2 p-0 imagen-historial">
+							<img src="{{ pedido.comercioFoto}}">
+						</div>
+						<div class="col-10 p-0 comercio" (click)="verPedido( pedido.id )">
+							<div class="row m-0">
+								<div class="col-9 caja-nombre">
+									<span class="nombre">{{ pedido.comercioNombre }}</span>
+								</div>
+								<div class="col-3 caja-precio-historial">
+									<span class="precio">$ {{ pedido.total }}</span>
+								</div>
+							</div>
+							<div class="row m-0">
+								<div class="col-6 caja-estado">
+									<span class="estado" *ngIf="pedido.estado == 'Entregado'" style="color: #b4b4b4;">Entregado</span>
+									<span class="estado" *ngIf="pedido.estado == 'Rechazado'" style="color:#b4b4b4">Rechazado</span>
+									<span class="estado" *ngIf="pedido.estado == 'Cancelado'" style="color:#b4b4b4">Cancelado</span>
+								</div>
+								<div class="col-6 caja-fecha">
+									<span class="fecha">{{ pedido.fecha | date:'short' }}</span>
+								</div>							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+	</div>
+
+
+
+
+
+</div>

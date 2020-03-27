@@ -1,0 +1,219 @@
+.caja-nav{
+    background-color: #fa3b7b;
+    width: 100%;
+    height: 55px;
+    max-height: 55px;
+    text-align: center;
+}
+.caja-nav .col-3{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.caja-nav .row{
+    margin: 0!important;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.caja-nav button i{
+    color: #fff;
+    font-size: 22px;
+}
+.caja-nav .menu{
+    color: #ffffff;
+    background: none;
+    border: 0;
+    outline: 0;
+    text-align: center;
+    padding: 0 0 0 5px;
+}
+.caja-nav .titulo{
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;  
+}
+.caja-nav .btnLogin{
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px; 
+    background: none;
+    border: 0;
+    outline: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+
+.comerciosCerrados{
+    padding: 0 15px;
+}
+.comerciosCerrados .comercio {
+    border-bottom: 1px solid #ececec;
+    padding: 10px 0;   
+    cursor: pointer;
+    /* box-shadow: 0px 1px 1px 0 rgba(0, 0, 0, 0.2); */
+    transition: all .3s ease;
+    margin-bottom: 0;
+}
+    .comerciosCerrados .comercio:hover{
+        background: #f5f5f5;
+    }
+
+.comerciosCerrados .comercio .caja1 {
+    padding: 0 10px;
+}
+.comerciosCerrados .comercio .caja1 .foto {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 100px;
+}
+.comerciosCerrados .comercio .caja1 .foto img {
+    width: 100%;
+    height: 50px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.comerciosCerrados .comercio .caja2 {
+    padding: 0 10px 0 0;
+}
+.comerciosCerrados .comercio .caja2 .nombre {
+    color: #666666;
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    text-transform: capitalize;
+}
+.comerciosCerrados .comercio .caja2 .estado {
+    color: #b4b4b4;
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.25pt;
+    text-transform: capitalize;
+    float: left;
+}
+.comerciosCerrados .comercio .caja2 .delivery {
+    color: #b4b4b4;
+    /* color: #1a9c21; */
+    font-size: 12px;
+    font-weight: 600;
+    float: right;
+    padding-right: 20px;
+}
+
+
+
+
+
+
+
+.caja-abierto{
+    /* background-color: #ebebeb; */
+    background-color: #f4f4f4;
+    height: auto;
+    padding: 17px 0 5px 0;
+    /* padding-top: 15px; */
+    display: flex;
+    align-items: center;
+}
+.caja-cerrado{
+    /* background-color: #ebebeb; */
+    background-color: #f4f4f4;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.caja-abierto span{
+    color: #666666;
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;  
+    margin-left: 35px;  
+}
+.caja-cerrado span{
+    color: #666666;
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 400;  
+    margin-left: 35px;  
+}
+.comerciosAbiertos{
+    background-color: #f4f4f4;
+    padding: 0 10px 5px 10px;
+    
+}
+.comerciosAbiertos .comercio {
+    background-color: #fff;
+    margin: 0 auto;
+    margin-bottom: 1px;
+    padding: 10px 0;   
+    border-radius: 5px;
+    cursor: pointer;
+
+    /* box-shadow: 0 3px 4px 0 rgba(0,0,0,.07), 0 1px 1px -2px rgba(0,0,0,.1), 0 1px 5px 0 rgba(0,0,0,.06); */
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,.07), 0 1px 1px -2px rgba(0,0,0,.1);
+    transition: all .3s ease;
+}
+    .comerciosAbiertos .comercio:hover{
+        background: #f5f5f5;
+        /* padding: 20px 0;   */
+    }
+
+.comerciosAbiertos .comercio .caja1 {
+    padding: 0 10px;
+}
+.comerciosAbiertos .comercio .caja1 .foto {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    /* border-radius: 100px; */
+}
+.comerciosAbiertos .comercio .caja1 .foto img {
+    width: 100%;
+    height: 80px;
+}
+
+.comerciosAbiertos .comercio .caja2 {
+    padding: 0 10px 0 0;
+}
+.comerciosAbiertos .comercio .caja2 .nombre {
+    color: #666666;
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+    text-transform: capitalize;
+}
+.comerciosAbiertos .comercio .caja2 .estado {
+    color: #fa3b7b;
+    /* light 300, regular 400, medium 500, bold 700 */
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.25pt;
+    float: left;
+}
+.comerciosAbiertos .comercio .caja2 .delivery {
+    /* color: #b4b4b4; */
+    color: #1a9c21;
+    font-size: 14px;
+    font-weight: 600;
+    float: right;
+    padding-right: 20px;
+}
